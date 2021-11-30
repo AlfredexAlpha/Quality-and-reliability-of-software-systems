@@ -3,9 +3,7 @@ import textacy
 from textacy import extract
 import textacy.datasets
 
-use_lang = 'en_core_web_lg'
-doc = textacy.make_spacy_doc(text, lang=use_lang)
-
+en = textacy.load_spacy_lang("en_core_web_lg")
 ds = textacy.datasets.CapitolWords()
 ds.download()
 corpus = textacy.Corpus(lang=en, data=ds.texts(speaker_party="R", chamber="House", limit=100))
